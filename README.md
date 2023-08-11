@@ -1,18 +1,18 @@
 ![Blog Card Component](./design/final-desktop-design.png)
 
-**Challenge Title**
+##Challenge Title
 
 Blog Card Component
 
-**Challenge Description**
+##Challenge Description
 
 In this challenge, I built a Blog Card Component. This challenge was perfect for me as I've been learning CSS and wanted to take your CSS skills to the next level by building something new and beginner-friendly.
 
-**Difficulty Level**
+##Difficulty Level
 
 Beginner
 
-**Tags**
+##Tags
 
 FRONTEND
 
