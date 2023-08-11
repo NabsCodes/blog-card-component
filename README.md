@@ -5,7 +5,7 @@ Blog Card Component
 ![Blog Card Component](./design/final-desktop-design.png)
 
 # Live Demo
-[Link](https://blog-card-components.netlify.app/)
+[Click Here](https://blog-card-components.netlify.app/)
 
 # Challenge Description
 
