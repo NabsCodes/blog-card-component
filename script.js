@@ -1,35 +1,32 @@
-// Write your JavaScript here
-function updateTimeAgo() {
-    const timeAgoElement = document.getElementById('time-ago');
-    const currentTime = Date.now(); // Current timestamp in milliseconds
-    let initialTimestamp = parseInt(localStorage.getItem('initialTimestamp')); // Get initial timestamp from localStorage
+const timer = document.querySelector('.time-ago');
+const lastRefreshed = new Date();
 
-    if (!initialTimestamp) {
-        initialTimestamp = currentTime;
-        localStorage.setItem('initialTimestamp', initialTimestamp); // Store initial timestamp in localStorage
-    }
+setInterval(function () {
+    const now = new Date();
+    const difference = now - lastRefreshed;
 
-    const timeDifference = currentTime - initialTimestamp;
+    // Display the time relative to the current time.
+    timer.textContent = formatRelativeTime(difference);
+}); // Update every second.
 
-    if (timeDifference < 3000) {
-        timeAgoElement.textContent = 'just now';
-    } else if (timeDifference < 60000) {
-        const secondsAgo = Math.floor(timeDifference / 1000);
-        timeAgoElement.textContent = `${secondsAgo}s ago`;
-    } else if (timeDifference < 3600000) {
-        const minutesAgo = Math.floor(timeDifference / 60000);
-        timeAgoElement.textContent = `${minutesAgo}m ago`;
-    } else if (timeDifference < 86400000) {
-        const hoursAgo = Math.floor(timeDifference / 3600000);
-        timeAgoElement.textContent = `${hoursAgo}h ago`;
-    } else {
-        const daysAgo = Math.floor(timeDifference / 86400000);
-        timeAgoElement.textContent = `${daysAgo}d ago`;
+function formatRelativeTime(difference) {
+    const seconds = Math.floor(difference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    switch (true) {
+        case seconds < 60:
+            return `${seconds} seconds ago`;
+        case minutes < 60:
+            return `${minutes} minutes ago`;
+        case hours < 24:
+            return `${hours} hours ago`;
+        case days < 7:
+            return `${days} days ago`;
+        default:
+            return new Intl.DateTimeFormat(navigator.language, {
+                dateStyle: 'full',
+            }).format(lastRefreshed);
     }
 }
-
-// Call updateTimeAgo on page load
-updateTimeAgo();
-
-// Update time every second after the initial load
-setInterval(updateTimeAgo, 1000);
