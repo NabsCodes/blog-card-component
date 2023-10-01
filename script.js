@@ -7,7 +7,7 @@ setInterval(function () {
 
     // Display the time relative to the current time.
     timer.textContent = formatRelativeTime(difference);
-}); // Update every second.
+}, 1000); // Update every second.
 
 function formatRelativeTime(difference) {
     const seconds = Math.floor(difference / 1000);
