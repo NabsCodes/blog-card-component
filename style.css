@@ -36,6 +36,9 @@ body {
 }
 
 .right-container {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
 	font-family: "Poppins", sans-serif;
 	padding: 20px;
 	height: 280px;
@@ -50,24 +53,25 @@ body {
 	background-color: #fe7f2d;
 	color: white;
 	font-weight: 300;
+	text-align: left;
 	text-transform: uppercase;
 	display: inline-block;
 	padding: 0 10px;
-	border-radius: 20px;
+	border-radius: 2em;
+	margin: 0 13.3em 0 0;
 	font-size: 0.867em;
-	margin-bottom: 5px;
 }
 
 .main-paragraph {
 	font-weight: 600;
 	font-size: 1.2em;
-	margin-bottom: 7px;
+	/* margin-bottom: 7px; */
 }
 
 .other-paragraph {
 	font-weight: 400;
 	font-size: 1em;
-	margin-bottom: 35px;
+	/* margin-bottom: 35px; */
 }
 
 .name-image {
